@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="all">
+  <meta name="googlebot" content="all">
+  <meta name="geo.position" content="19.0760°N, 72.8777°E">
+  <meta name="geo.placename" content="Mumbai, Maharashtra">
+  <meta name="geo.region" content="India">
+  <meta name="description" content="Output your assignments in a few clicks!">
+  <meta name="keywords" content="Handwriter, Text-to-handwriting, handwriting-to-text">
+  <meta name="author" content="Sarvesh Patil">
+
+  <script data-ad-client="ca-pub-5076826746042527" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <title>WriteMate</title>
+  <style>
+    body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+        #cursorTrail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+</style>
+  <link rel="icon" href="./images/logo.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat&family=Cedarville+Cursive&family=Handlee&family=Homemade+Apple&family=Indie+Flower&family=Kalam:wght@300&family=Kristi&family=Liu+Jian+Mao+Cao&family=Nothing+You+Could+Do&family=Roboto&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/external/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/features.css" />
+  <link rel="stylesheet" href="./css/external/w3.css">
+  
+</head>
+
+<body>
+  <canvas id="cursorTrail"></canvas>
+  <main>
+
+    <div class="fullpagehero">
+      <a tabindex="0" href="https://github.com/coderX-nikhil/WriteMate" target="_blank" class="github-corner">
+        <svg width="80" height="80" viewBox="0 0 250 250"
+          style="fill: #151513;color: #fff;position: absolute;top: 0;border: 0;right: 0;" aria-hidden="true">
+          <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+          <path
+            d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+          <path
+            d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+        </svg>
+      </a>
+      <button title="Toggle Dark Mode" class="dark-mode-toggle" onclick="toggleTheme(this)">
+        <span class="sun">
+          <img alt="sun icon that represents light mode" width="35px" src="images/sun.svg" />
+        </span>
+        <span class="moon"><img alt="moon icon to represent dark mode " width="25px" src="images/moon.svg" /></span>
+      </button>
+      <!-- ---------------------------------Dark Mode Toggle and Heading-------------------------------- -->
+      <div class="center">
+        <div>
+          <span style="display: flex; align-items: baseline;">
+            <p class="heading">WriteMate</p>
+            <p style="font-size: 15px;" class="d-none d-lg-block d-xl-block">No more lengthy assignments</p>
+          </span>
+        </div>
+        <div style="margin-right: 100px;">
+          <a class="scrollbutton scrollbutton-lg" href="#workflow" style=" text-decoration: none;">
+            <span>&emsp;</span>
+            <img src="./images/scroll.svg" height="40px" style="margin-bottom: 10px;">
+            <div class="circle" style="animation-delay: -3s"></div>
+            <div class="circle" style="animation-delay: -2s"></div>
+            <div class="circle" style="animation-delay: -1s"></div>
+            <div class="circle" style="animation-delay: 0s"></div>
+            <p>Get Started</p>
+          </a>
+        </div>
+        <div style="margin-right: 100px;" class="d-lg-none d-xl-none">
+          <a class="scrollbutton scrollbutton-sm" style=" text-decoration: none;">
+            <span>&emsp;</span>
+            <img src="./images/scroll.svg" height="40px" style="margin-bottom: 10px;">
+            <div class="circle" style="animation-delay: -3s"></div>
+            <div class="circle" style="animation-delay: -2s"></div>
+            <div class="circle" style="animation-delay: -1s"></div>
+            <div class="circle" style="animation-delay: 0s"></div>
+            <p>Get Started</p>
+          </a>
+        </div>
+      </div>
+    </div> 
+    <div class=" workflow-big" id="workflow">
+      <hr/>
+      <h1 class="w3-center" >
+        What do you wanna do?
+      </h1>
+      <div class="row workflow-wrap">
+        <div class="column workflow-ocr" style="text-align: center;" href="#workflow-ocr">
+          <h2>Image to Text (OCR) <small>(Beta) </small><a style="font-size: 1.1rem;"
+              title="Works locally only, for now!">
+              &#9432;
+            </a></h2>
+
+          <p>Detect text from Images.
+            <br />Copy output and proceed =></p><br>
+          <img src="./images/demo1.png" width="250px" height="350px" style="border: 1px solid #ccc"
+            class="d-none d-lg-block d-xl-block">
+        </div>
+        <div class="column workflow-handwrite"
+          style="border-right: 1px solid #f0ecec; border-left: 1px solid #ccc;text-align: center;">
+          <h2>Convert to Handwriting</h2>
+          <p>Have some text you can copy? Yay! Just paste it!</p><br>
+          <img src="./samples/sample4.jpg" width="250px" style="border: 1px solid #ccc"
+            class="d-none d-lg-block d-xl-block">
+        </div>
+        <div class="column workflow-draw" style="text-align: center;">
+          <h2>Draw and save</h2>
+          <p>Need to export some artwork?</p><br>
+          <img src="./images/demo2.jpg" width="250px" style="border: 1px solid #ccc"
+            class="d-none d-lg-block d-xl-block">
+        </div>
+      </div>
+    </div>
+
+
+    <div class=" d-lg-none d-xl-none" id="workflow">
+      <hr id="workflow-sm"/>
+      <h1 class="w3-center">
+        What do you wanna do?
+      </h1><br>
+      <div class="workflow-wrap">
+        <div class="workflow-ocr" style="text-align: center; border: 1px solid #ccc;margin: 5px;" href="#workflow-ocr">
+          <h2>Image to Text (OCR) <small>(Beta) </small><a style="font-size: 1.1rem;"
+              title="Works locally only, for now!">
+              &#9432;
+            </a></h2>
+
+          <p>Detect text from Images.
+            <br />Copy output and proceed =></p><br>
+        </div>
+        <div class="workflow-handwrite"
+          style="border-right: 1px solid #ccc; border: 1px solid #ccc;text-align: center;margin: 5px;">
+          <h2>Convert to Handwriting</h2>
+          <p>Have some text you can copy? Yay! Just paste it!</p><br>
+        </div>
+        <div class="workflow-draw" style="text-align: center;border: 1px solid #ccc;margin: 5px;">
+          <h2>Draw and save</h2>
+          <p>Need to export some artwork?</p><br>
+        </div>
+      </div>
+    </div>
+
+    <hr id="workflow-ocr" />
+
+    <div class="">
+      <h1 class="w3-center">
+        Upload images to detect text
+      </h1> <br><br>
+      <div class="row">
+        <div class="col-sm-4 imgUp">
+          <h3>Step 1: Upload text-Image</h3><br>
+          <div class="imagePreview "></div>
+          <form id="my-form" action="/detect" method="post" enctype="multipart/form-data">
+            <label class="btn btn-primary">
+              Upload<input type="file" name="avatar" class="uploadFile img" value="Upload Photo"
+                style="width: 0px;height: 0px;overflow: hidden; position: fixed;display: none;">
+            </label>
+          </form>
+        </div>
+        <div class="col-sm-4">
+          <div class="text-center">
+            <h3 class="title">Step 2: Detect Text From Image </h3>
+            <br><br>
+            <button type="button" onclick="$('#my-form').submit();"
+              class="btn btn-outline-danger btn-lg">Detect</button>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="text-center">
+            <h3 class="title">Step 3: Results </h3>
+            <pre class="ocr-result"></pre>
+            <button type="button" class="btn btn-outline-dark copy-clipboard"
+              onclick="copyToClipboard($('pre')[0].innerHTML)" onmouseout="outFunc()"><span class="tooltiptext"
+                id="myTooltip">Copy to
+                clipboard</span>Copy</button>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="loading-modal" data-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="loading-modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center col-12" id="exampleModalLongTitle">Detecting Text from image</h5>
+            </div>
+            <div class="modal-body">
+              <div class="text-center" style="background:whitesmoke">
+                <img src="./images/modal.gif" alt="Modal" srcset="" width="80%" height="80%">
+              </div>
+            </div>
+            <div class="modal-footer" style="padding-bottom:0;">
+              <p class="text-center col-12">Loading ...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <hr id="workflow-handwrite"/>
+    <h1  class="w3-center">Convert to Handwriting</h2><br>  
+
+
+    <div class="" id="input">
+      <section class="generate-image-section">
+        <form id="generate-image-form">
+          <div class="display-flex output-grid responsive-flex">
+            <div class="flex-1 page-container-super">
+              <span style="display: flex; align-items: baseline;">
+                <label class="block" for="note" style="margin-right: 10px; font-size: 15px;">Type/Paste text
+                  here</label>
+                <h5 style="margin-right: 10px;font-family: 'Roboto', sans-serif;">Or</h5>
+                <div>
+                  <button id="draw-diagram-button" type="button" style="font-size: 0.9rem; margin-top: 5px;"
+                    class="draw-button w3-hover-shadow w3-hover-red">
+                    Draw
+                  </button>
+                </div>
+              </span>
+              <div class="flex-1 page-container">
+                <div class="page-a margined lines">
+                  <div contenteditable="true" class="top-margin"></div>
+                  <div class="display-flex left-margin-and-content">
+                    <div contenteditable="true" class="left-margin"></div>
+                    <div class="paper-content" id="note" contenteditable="true">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Ut rhoncus dui eget tortor feugiat iaculis. Morbi et dolor
+                      in felis viverra efficitur. Integer id laoreet arcu.
+                      Mauris turpis nibh, scelerisque sed tristique non,
+                      hendrerit in erat. Duis interdum nisl risus, ac ultrices
+                      ipsum auctor at. Aliquam faucibus iaculis metus sit amet
+                      tincidunt. Vestibulum cursus urna vel nunc imperdiet
+                      suscipit. Ut eu augue egestas, porta orci lobortis,
+                      pharetra orci. Morbi eu tellus quis nisi tempor accumsan
+                      nec eu urna. empor, ullamcorper tortor. Mauris quis
+                      fermentum augue. Phasellus ac nisl hendrerit, fringilla
+                      enim aliquam, placerat odio. Ut tortor nisi, pellentesque
+                      sed nisi at, hendrerit imperdiet turpis. Proin interdum
+                      porttitor metus at hendrerit. Proin ipsum nisl, lacinia
+                      vitae purus ullamcorper, maximus convallis sem. Sed nec
+                      lacinia lorem. Duis arcu metus, cursus non odio quis,
+                      tincidunt tempor augue. Donec eget vestibulum risus.
+                      Nullam blandit quis est vitae feugiat.
+                    </div>
+                  </div>
+                  <div class="overlay"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="customization-col">
+
+              <div style="padding: 5px 0px 5px 0px;">
+                <b>Customizations</b> <small>(Optional)</small>
+              </div>
+
+
+              <fieldset>
+                <legend>Canvas Background Options</legend>
+                <small style="color: #f30; font-size: 11px;">
+                  Note:-ACE Might look weird in preview but output would be as desired
+                </small>
+                <div class="category-grid">
+                  <div>
+                    <label for="canvas-background" class="block">Canvas Background </label>
+                    <select id="canvas-background">
+                      <option selected value="#fff">
+                        General
+                      </option>
+                      <option value="url('../images/blue.jpg') no-repeat">
+                        ACE
+                      </option>
+                    </select>
+                  </div>
+                  <div id="hidden-div">
+                    <label for="canvas-style" class="block">Scan filter</label>
+                    <select id="canvas-style">
+                      <option selected value="url('../images/blue.jpg') no-repeat">
+                        ACE - Blue
+                      </option>
+                      <option value="url('../images/black.jpg') no-repeat">
+                        ACE - Onyx Black
+                      </option>
+                      <option value="url('../images/scan-blue.jpg') no-repeat">
+                        ACE - Scanned Blue
+                      </option>
+                    </select>
+                  </div>
+
+                  <div class="margin-color">
+                    <label for="margin-color" class="block">Margin Color</label>
+                    <select id="margin-color">
+                      <option selected value="2px solid pink">
+                        Default
+                      </option>
+                      <option value="2px double rgb(26, 26, 26, 0.8)">
+                        Onyx Black
+                      </option>
+                      <option value="2px double rgb(0, 0, 48, 0.8)">
+                        Blue
+                      </option>
+                    </select>
+                  </div>
+
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>Handwriting Options</legend>
+
+                <div class="category-grid">
+                  <div>
+                    <label class="block" for="handwriting-font">Handwriting Font</label>
+                    <select id="handwriting-font">
+                      <option selected style="font-family: 'Homemade Apple';" value="'Homemade Apple', cursive">
+                        Homemade Apple
+                      </option>
+                      <option value="Hindi_Font">
+                        Kruti-dev(Hindi)
+                      </option>
+                      <option style="font-family: 'Caveat', cursive; font-size: 13pt;" value="'Caveat', cursive">
+                        Caveat
+                      </option>
+                      <option style="
+                          font-family: 'Liu Jian Mao Cao';
+                          font-size: 13pt;
+                        " value="'Liu Jian Mao Cao', cursive">
+                        Liu Jian Mao Cao
+                      </option>
+                      <option style="font-family: 'Indie Flower', cursive; font-size: 13pt;"
+                        value="'Indie Flower', cursive">
+                        Indie Flower
+                      </option>
+                      <option style="font-family: 'Handlee', cursive; font-size: 13pt;" value="'Handlee', cursive">
+                        Handlee
+                      </option>
+                      <option style="font-family: 'Cedarville Cursive', cursive; font-size: 13pt;"
+                        value="'Cedarville Cursive', cursive">
+                        Cedarville Cursive
+                      </option>
+                      <option style="font-family: 'Kristi', cursive; font-size: 13pt;" value="'Kristi', cursive">
+                        Kristi
+                      </option>
+                      <option value="khand_medium">
+                        Khand Medium
+                      </option>
+                      <option value="brown_bag">
+                        Brown Bag
+                      </option>
+                      <option value="really_free">
+                        Really Free
+                      </option>
+                      <option style="font-family: 'Nothing You Could Do', cursive; font-size: 13pt;"
+                        value="'Nothing You Could Do', cursive">
+                        Nothing You Could Do
+                      </option>
+                    </select>
+                  </div>
+
+                  <div class="upload-handwriting-container">
+                    <label class="block" for="font-file">Upload your handwriting font <small>(Beta)</small>&nbsp;
+                      <a style="font-size: 1.1rem;" title="How to add your own handwriting">
+                        &#9432;
+                      </a>
+                    </label>
+                    <input accept=".ttf, .otf" type="file" id="font-file" />
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- Pen ink color, Font size, Vertical position text, Word Spacing -->
+              <fieldset>
+                <legend>Page & Text Options</legend>
+
+                <div class="category-grid">
+                  <div class="postfix-input" data-postfix="pt">
+                    <label for="font-size">Font Size</label>
+                    <input id="font-size" min="0" step="0.5" value="10" type="number" />
+                  </div>
+                  <div>
+                    <label class="block" for="ink-color">Ink Color</label>
+                    <select id="ink-color">
+                      <option default value="#000f55">Blue</option>
+                      <option value="black">Black</option>
+                      <option value="#ba3807">Red</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block" for="page-size">Page Size</label>
+                    <select id="page-size">
+                      <option default value="a4">A4 &nbsp;</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block" for="page-effects">Effects</label>
+                    <select id="page-effects">
+                      <option value="shadows">Shadows</option>
+                      <option value="scanner">Scanner</option>
+                      <option selected value="no-effect">No Effect</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block" for="resolution">Resolution</label>
+                    <select id="resolution">
+                      <option value="0.8">Very Low</option>
+                      <option value="1">Low</option>
+                      <option selected value="2">Normal</option>
+                      <option value="3">High</option>
+                      <option value="4">Very High</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>Spacing Options</legend>
+
+                <div class="category-grid">
+                  <div class="postfix-input" data-postfix="px">
+                    <label for="top-padding">Vertical Position</label>
+                    <input id="top-padding" min="0" value="5" type="number" />
+                  </div>
+                  <div class="postfix-input" data-postfix="px">
+                    <label for="word-spacing">Word Spacing</label>
+                    <input id="word-spacing" min="0" value="0" type="number" />
+                  </div>
+                  <div class="postfix-input" data-postfix="pt">
+                    <label for="letter-spacing">Letter Spacing</label>
+                    <input id="letter-spacing" value="0" type="number" />
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- Letter spacing, Paper Margin, Paper Lines, Paper Curvature -->
+              <fieldset>
+                <legend>Margin & Line Options</legend>
+
+                <div class="category-grid">
+                  <div>
+                    <label for="paper-margin-toggle">Paper Margin:
+                      <span aria-label="paper margin status" class="status">on</span>
+                    </label>
+                    <label class="switch-toggle outer">
+                      <input aria-checked="true" checked aria-label="Paper Margin Button" id="paper-margin-toggle"
+                        type="checkbox" />
+                      <div></div>
+                    </label>
+                  </div>
+
+                  <div>
+                    <label for="paper-line-toggle">Paper Lines:
+                      <span aria-label="paper line status" class="status">on</span>
+                    </label>
+                    <label class="switch-toggle outer">
+                      <input aria-checked="true" checked aria-label="Paper Line Button" id="paper-line-toggle"
+                        type="checkbox" />
+                      <div></div>
+                    </label>
+                  </div>
+                  <div class="experimental">
+                    <label for="paper-curve-toggle">Paper Curve:
+                      <span aria-label="paper curve status" class="status">off</span>
+                    </label>
+                    <label title="Paper Curve (Yet to be implemented)" class="switch-toggle outer"
+                      style="cursor: not-allowed !important;">
+                      <input aria-checked="false" aria-label="Paper Curve Button" id="paper-curve-toggle"
+                        type="checkbox" />
+                      <div></div>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- GENERATE IMAGE BUTTONS -->
+              <hr style="
+                  border: 0.3px solid var(--elevation-background);
+                  width: 80%;
+                " />
+              <div style="text-align: center;">
+
+                <button onclick="document.getElementById('previewbox').style.display='block'"
+                  class="w3-button w3-black">Preview Current Page</button>
+
+                <div id="previewbox" class="w3-modal">
+                  <div class="w3-modal-content w3-animate-zoom">
+                    <div class="w3-container">
+                      <span onclick="document.getElementById('previewbox').style.display='none'" id="previewdiv"
+                        class="w3-button w3-display-topright">&times;</span>
+                    </div>
+                  </div>
+                </div>
+
+                <button type="submit" data-testid="generate-image-button" class="button generate-image-button"
+                  id="generate">
+                  Generate Output
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div><br>
+
+
+    <!-- OUTPUT -->
+    <div id="section3" class="-edit">
+      <section>
+        <h2 id="output-header"></h2>
+        <div id="output" class="output" style="text-align: center;">
+          Click "Generate Image" Button to generate new image.
+        </div>
+        <div style="text-align: center; padding: 30px;">
+          <button class="imp-button" id="download-as-pdf-button">
+            Download All Images as PDF
+          </button>
+        </div>
+      </section>
+  </main>
+  <!-- Fixed Elements -->
+  <section class="draw-container popup-container">
+    <button class="close-button">&times;</button>
+    <div class="display-flex responsive-flex">
+      <canvas id="diagram-canvas" style="background-color: #fff;" height="300px" width="600px"></canvas>
+      <div class="flex-1 buttons-container padding-around">
+        <button id="add-to-paper-button" style="margin-top: 5px; margin-bottom: 5px;">
+          Add to Paper
+        </button>
+        <button id="draw-download-button" style="margin-top: 5px; margin-bottom: 5px;">
+          Download Image
+        </button>
+        <br /><br />
+        <input type="file" id="image-to-add-in-canvas" accept="image/x-png,image/jpeg" hidden="hidden" />
+        <br /><br /><button id="add-new-image-button">Add bg image</button>
+        <br /><br />
+        <button id="clear-draw-canvas" class="blue-button" style="background-color: #f30; color: #fff;">
+          Clear Canvas
+        </button>
+      </div>
+    </div>
+  </section>
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <filter id="blur">
+        <feGaussianBlur stdDeviation="4" />
+      </filter>
+    </defs>
+  </svg>
+  </div>
+  <script>
+    const canvas = document.getElementById('cursorTrail');
+        const ctx = canvas.getContext('2d');
+        
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        let mouseMoved = false;
+        const pointer = {
+            x: 0.5 * width,
+            y: 0.5 * height
+        };
+        const params = {
+            pointsNumber: 30, // Reduced the number of points for a shorter trail
+            widthFactor: 0.3,
+            spring: 0.2, // Adjusted spring for smoother movements
+            friction: 0.6, // Increased friction to slow down the tail
+            velocity: 0.4,
+            dampening: 0.1,
+            tension: 0.98
+        };
+
+        const trail = new Array(params.pointsNumber);
+        for (let i = 0; i < params.pointsNumber; i++) {
+            trail[i] = {
+                x: pointer.x,
+                y: pointer.y,
+                dx: 0,
+                dy: 0
+            }
+        }
+
+        window.addEventListener("mousemove", e => {
+            mouseMoved = true;
+            updateMousePosition(e.pageX, e.pageY);
+        });
+
+        window.addEventListener("touchmove", e => {
+            mouseMoved = true;
+            updateMousePosition(e.targetTouches[0].pageX, e.targetTouches[0].pageY);
+        });
+
+        function updateMousePosition(eX, eY) {
+            pointer.x = eX;
+            pointer.y = eY;
+        }
+
+        setupCanvas();
+        update(0);
+        window.addEventListener("resize", setupCanvas);
+
+        function setupCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        function update(t) {
+            if (!mouseMoved) {
+                pointer.x = (0.5 + 0.3 * Math.cos(0.002 * t) * Math.sin(0.005 * t)) * width;
+                pointer.y = (0.5 + 0.2 * Math.sin(0.005 * t) + 0.1 * Math.cos(0.01 * t)) * height;
+            }
+
+            ctx.clearRect(0, 0, width, height);
+
+            trail.forEach((p, pIdx) => {
+                const prev = pIdx === 0 ? pointer : trail[pIdx - 1];
+                const spring = pIdx === 0 ? 0.4 * params.spring : params.spring;
+                p.dx += (prev.x - p.x) * spring;
+                p.dy += (prev.y - p.y) * spring;
+                p.dx *= params.friction;
+                p.dy *= params.friction;
+                p.x += p.dx;
+                p.y += p.dy;
+            });
+
+            ctx.beginPath();
+            ctx.moveTo(trail[0].x, trail[0].y);
+
+            const gradient = ctx.createLinearGradient(0, 0, width, height);
+            gradient.addColorStop(0, "rgba(255, 0, 255, 0.8)");
+            gradient.addColorStop(0.5, "rgba(0, 255, 255, 0.8)");
+            gradient.addColorStop(1, "rgba(255, 255, 0, 0.8)");
+
+            for (let i = 1; i < params.pointsNumber - 1; i++) {
+                const xc = 0.5 * (trail[i].x + trail[i + 1].x);
+                const yc = 0.5 * (trail[i].y + trail[i + 1].y);
+                ctx.quadraticCurveTo(trail[i].x, trail[i].y, xc, yc);
+            }
+
+            ctx.strokeStyle = gradient;
+            ctx.lineCap = "round";
+            ctx.lineJoin = "round";
+            ctx.lineWidth = params.widthFactor * 20;
+            ctx.stroke();
+
+            // Add glow effect
+            ctx.shadowColor = 'rgba(255, 255, 255, 0.5)';
+            ctx.shadowBlur = 20;
+            ctx.stroke();
+            
+            window.requestAnimationFrame(update);
+        }
+</script>
+
+  <script src="./js/vendors/jquery.min.js"></script>
+  <script src="./js/vendors/popper.min.js"></script>
+  <script src="./js/vendors/bootstrap.min.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/vendors/html2canvas.min.js" crossorigin="anonymous"></script>
+  <script type="module" src="js/app.mjs"></script>
+  <script defer src="https://unpkg.com/jspdf@^1/dist/jspdf.min.js"></script>
+  
+</body>
+
+</html>
